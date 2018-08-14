@@ -37,6 +37,9 @@ jobs:
     steps:
         - attach_workspace:
             at: .
+        - add_ssh_keys:
+            fingerprints:
+              - "50:7f:39:f8:35:c1:6b:82:95:3f:e0:37:a7:c6:9e:93"
         - run: APP=seb-kade-stg make deploy
 
   deploy-prod:
@@ -44,7 +47,10 @@ jobs:
     steps:
         - attach_workspace:
             at: .
-        - run: make -j deploy
+        - add_ssh_keys:
+            fingerprints:
+              - "50:7f:39:f8:35:c1:6b:82:95:3f:e0:37:a7:c6:9e:93"
+        - run: make deploy
 
 workflows:
   version: 2

@@ -29,6 +29,8 @@ jobs:
             paths:
               - Makefile
               - build
+              - src
+              - public
 
   deploy-dev:
     <<: *node
